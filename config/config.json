@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "Tsuyoshi",
+    "password": null,
+    "database": "creating_api_with_express_and_postgresql_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "Tsuyoshi",
+    "password": null,
+    "database": "creating_api_with_express_and_postgresql_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "Tsuyoshi",
+    "password": null,
+    "database": "creating_api_with_express_and_postgresql_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

@@ -8,6 +8,12 @@
     "express": "^4.16.2",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.22.6"
+    "sequelize": "^4.22.6",
+    "sequelize-cli": "^3.0.0"
+  },
+  "scripts": {
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate",
+    "model:generate": "sequelize model:generate"
   }
 }
