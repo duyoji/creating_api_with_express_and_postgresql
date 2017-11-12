@@ -71,3 +71,10 @@ yarn db:seed:all
 ```
 
 Inserted data comes from `seeders/*.js`.
+
+
+
+
+## References
+
+- [Sequelize](http://docs.sequelizejs.com/)
