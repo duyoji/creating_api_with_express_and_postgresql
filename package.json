@@ -14,6 +14,7 @@
   "scripts": {
     "db:create": "sequelize db:create",
     "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all",
     "model:generate": "sequelize model:generate"
   }
 }

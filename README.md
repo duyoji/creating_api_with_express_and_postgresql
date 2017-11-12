@@ -61,4 +61,13 @@ DB_NAME=# \l
 yarn db:migrate
 ```
 
-Table(s) is created by using information of `migrations/*.js`
+Table(s) is created by using information of `migrations/*.js`.
+
+
+#### To insert dummy data into table in your Table.
+
+```bash
+yarn db:seed:all
+```
+
+Inserted data comes from `seeders/*.js`.
