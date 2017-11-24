@@ -102,7 +102,7 @@ module.exports = {
           todo[prop] = req.body[prop];
         }
       }
-      await todo.save();
+      await todo.save({ transaction });
       await transaction.commit();
       send(res, STATUS_CODES.OK, formatResponseData({todo}), false);
     } catch (error) {
