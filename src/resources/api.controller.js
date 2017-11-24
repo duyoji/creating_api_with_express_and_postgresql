@@ -47,7 +47,7 @@ module.exports = {
    * Example code for client.
    *
    *   const options = {
-   *     headers = {'Content-Type': 'application/json'},
+   *     headers: {'Content-Type': 'application/json'},
    *     method: 'POST',
    *     body: JSON.stringify({title: 'title', body: 'body'})
    *   };
@@ -74,9 +74,43 @@ module.exports = {
     }
   },
 
-  // Update
-  putTodo(req, res){
-    send(res, STATUS_CODES.OK, '`putTodo` should update a todo in DB', false);
+  /**
+   * Update
+   *
+   * Example code for client.
+   *
+   *   const options = {
+   *     headers: {'Content-Type': 'application/json'},
+   *     method: 'PUT',
+   *     body: JSON.stringify({id: 1, title: 'updated title', body: 'updated body'})
+   *   };
+   *   fetch('http://127.0.0.1:8888/api/todos', options)
+   *     .then(data => data.json())
+   *     .then(result => console.log(result))
+   */
+  async putTodo(req, res){
+    let transaction;
+    try {
+      transaction = await models.sequelize.transaction();
+      const todo = await models.Todo.findById(req.body.id, { transaction });
+      if (!todo) {
+        throw new Error(`Couldn't find a todo of ID ${req.body.id}`);
+      }
+
+      for(let prop in req.body) {
+        if(prop !== 'id') {
+          todo[prop] = req.body[prop];
+        }
+      }
+      await todo.save({ transaction });
+      await transaction.commit();
+      send(res, STATUS_CODES.OK, formatResponseData({todo}), false);
+    } catch (error) {
+      await transaction.rollback();
+      send(res, STATUS_CODES.BAD_REQUEST, formatResponseData({
+        error: error.message
+      }));
+    }
   },
 
   // Delete
