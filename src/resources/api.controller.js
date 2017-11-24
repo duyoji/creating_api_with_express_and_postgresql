@@ -113,9 +113,37 @@ module.exports = {
     }
   },
 
-  // Delete
-  deleteTodo(req, res){
-    send(res, STATUS_CODES.OK, '`deleteTodo` should delete a todo from DB', false);
+  /**
+   * Delete
+   *
+   * Example code for client.
+   *
+   *   const options = {
+   *     headers: {'Content-Type': 'application/json'},
+   *     method: 'DELETE',
+   *     body: JSON.stringify({id: 2})
+   *   };
+   *   fetch('http://127.0.0.1:8888/api/todos', options)
+   *     .then(data => data.json())
+   *     .then(result => console.log(result))
+   */
+  async deleteTodo(req, res){
+    let transaction;
+    try {
+      transaction = await models.sequelize.transaction();
+      const todo = await models.Todo.findById(req.body.id, { transaction });
+      if (!todo) {
+        throw new Error(`Couldn't find a todo of ID ${req.body.id}`);
+      }
+      await todo.destroy({ transaction });
+      await transaction.commit();
+      send(res, STATUS_CODES.OK, formatResponseData({todo}), false);
+    } catch (error) {
+      await transaction.rollback();
+      send(res, STATUS_CODES.BAD_REQUEST, formatResponseData({
+        error: error.message
+      }));
+    }
   }
 }
 
