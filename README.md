@@ -21,3 +21,8 @@ To install dependencies:
 ## Data type of sequlize we can use.
 
 - http://docs.sequelizejs.com/variable/index.html
+
+
+## recourses
+
+- [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
