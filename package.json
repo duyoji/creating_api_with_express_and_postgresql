@@ -5,6 +5,8 @@
   "author": "Tsuyoshi Maeda <oasis5tsuyoshi@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.0",
     "express": "^4.16.2",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
@@ -12,6 +14,7 @@
     "sequelize-cli": "^3.1.0"
   },
   "scripts": {
+    "start": "NODE_ENV=development nodemon src/index.js",
     "db:create": "sequelize db:create",
     "model:generate": "sequelize model:generate",
     "seed:generate": "sequelize seed:generate",
@@ -19,5 +22,9 @@
     "migrate": "sequelize db:migrate",
     "rollback": "sequelize db:migrate:undo",
     "rollback:all": "sequelize db:migrate:undo:all"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1"
   }
 }
