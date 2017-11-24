@@ -2,7 +2,14 @@
 
 This repository is for [this meetup event](https://www.meetup.com/ja-JP/CodeChrysalis/events/245248864/).
 
-## Using ES6/7 syntax.
+
+## Requirements
+
+- Node.js (Confirmed working on version 8.9.1.)
+- PostgreSQL (Confirmed working on version 9.6.3.)
+- Yarn (Preferable.)
+
+## Using ES6/7 syntax
 
 This repository has ES6/7 syntax in this code. If you are not familar with following, I recommend read articles about those.
 
@@ -31,7 +38,7 @@ I recommend you don't change to above branches from master or other branches tha
 
 But, you are allowed to refer to code of above branches to finish each process.
 
-## How to install libraries.
+## How to install libraries
 
 `yarn` or `npm` is used for install libraries.
 
@@ -44,7 +51,7 @@ $ npm install
 $ yarn install
 ```
 
-### Install new libraries.
+### Install new libraries
 
 **Install into `dependencies` group in package.json**
 
@@ -62,19 +69,19 @@ or
 $ npm install -D MODULE_NAME
 ```
 
-
 ## Objectives of each part
 
-### Part1: Setup environment of DB.
+### Part1: Setup environment of DB
 
-- Be able to use [sequelize-cli](https://github.com/sequelize/cli) command.
-- To be able to create DB from command.
+- Not to use sql commands directly in shell of DB to create databases and tables.
+- To be able to use [sequelize-cli](https://github.com/sequelize/cli) command.
+- To be able to create Database from sequelize command.
 - To be able to create migration files to create tables.
 - To be able to create seed files to add data into tables.
 - To be able to reset/revert tables when having a mistake.
 - To be able to modify your migration files and seed files to what you want.
 
-### Part2: Setup environment of Express.
+### Part2: Setup environment of Express
 
 - To be able to set up a web server with express and understand how express works when the server receives requests.
 - To understand how middlewares of express works.
@@ -85,22 +92,22 @@ $ npm install -D MODULE_NAME
   - DELETE (for deleting data.)
 - To be able to handle processes according to HTTP methos.
 
-### Part3: Get todos.
+### Part3: Get todos
 
 - To be able to connect server with DB.
 - To be able to fetch data from DB with sequelize models.
 
-### Part4: Create a todo.
+### Part4: Create a todo
 
 - To understand what transaction is.
 - To understand how `body-parser` that is one of middleware of express works.
   - What happen if you exclude `body-parser` from `src/server.js`.
 
-### Part5: Update a todo.
+### Part5: Update a todo
 
 - Same as part4.
 
-### Part6: Delete a todo.
+### Part6: Delete a todo
 
 - Same as part4.
 
