@@ -17,3 +17,7 @@ To install dependencies:
   //or
   yarn install
 ```
+
+## Data type of sequlize we can use.
+
+- http://docs.sequelizejs.com/variable/index.html
