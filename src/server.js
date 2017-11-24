@@ -5,7 +5,17 @@ const morgan = require('morgan');
 const app = express();
 const apiRouter = require('./resources/api.router');
 
+// Refer to https://enable-cors.org/server_expressjs.html
+const middlewareForAllowOrigin = (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+};
+
 app.use('/api/', [
+  // My middleware
+  middlewareForAllowOrigin,
+
   // Third party middlewares.
   // You can put any middle wares that handle what you want to do.
   bodyParser.json(),
