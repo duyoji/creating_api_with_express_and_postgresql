@@ -71,45 +71,14 @@ $ npm install -D MODULE_NAME
 
 ## Objectives of each part
 
-### Part1: Setup environment of DB
+See each comment of PR and Finish all parts. (Please read `To achieve this process` in PR to understand what you need to do.)
 
-- Not to use sql commands directly in shell of DB to create databases and tables.
-- To be able to use [sequelize-cli](https://github.com/sequelize/cli) command.
-- To be able to create Database from sequelize command.
-- To be able to create migration files to create tables.
-- To be able to create seed files to add data into tables.
-- To be able to reset/revert tables when having a mistake.
-- To be able to modify your migration files and seed files to what you want.
-
-### Part2: Setup environment of Express
-
-- To be able to set up a web server with express and understand how express works when the server receives requests.
-- To understand how middlewares of express works.
-- To understand HTTP methods.
-  - GET (for fetching data.)
-  - POST (for creating data.)
-  - PUT (for updating data.)
-  - DELETE (for deleting data.)
-- To be able to handle processes according to HTTP methos.
-
-### Part3: Get todos
-
-- To be able to connect server with DB.
-- To be able to fetch data from DB with sequelize models.
-
-### Part4: Create a todo
-
-- To understand what transaction is.
-- To understand how `body-parser` that is one of middleware of express works.
-  - What happen if you exclude `body-parser` from `src/server.js`.
-
-### Part5: Update a todo
-
-- Same as part4.
-
-### Part6: Delete a todo
-
-- Same as part4.
+- [Part1: Setup environment of DB.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/7)
+- [Part2: Setup environment of Express.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/8)
+- [Part3: Get todos.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/9)
+- [Part4: Create a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/10)
+- [Part5: Update a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/11)
+- [Part6: Delete a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/12)
 
 ## Recourses
 
