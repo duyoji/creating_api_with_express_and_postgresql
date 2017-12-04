@@ -20,24 +20,6 @@ This repository has ES6/7 syntax in this code. If you are not familar with follo
 - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
   - To understand `async/await`, you need to know `Promises` because `async/await` uses `Promise` under the hood.
 
-## What is Each Branch of this repository for?
-
-This repository has 6 branches to learn how to create API server with JavaScript.
-
-- [Part1: Setup environment of DB.](https://github.com/duyoji/creating_api_with_express_and_postgresql/tree/part1-setup_db_env)
-- [Part2: Setup environment of Express.](https://github.com/duyoji/creating_api_with_express_and_postgresql/tree/part2-setup_express_env)
-- [Part3: Get todos.](https://github.com/duyoji/creating_api_with_express_and_postgresql/tree/part3-get_todos)
-- [Part4: Create a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/tree/part4-create_todo)
-- [Part5: Update a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/tree/part5-update_todo)
-- [Part6: Delete a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/tree/part6-delete_todo)
-
-
-Also you can see what differences is between current part and previous part in [PR list](https://github.com/duyoji/creating_api_with_express_and_postgresql/pulls).
-
-I recommend you don't change to above branches from master or other branches that you create. To understand this work flow, I also recomend that you don't copy code from above branches and paste into your code.
-
-But, you are allowed to refer to code of above branches to finish each process.
-
 ## How to install libraries
 
 `yarn` or `npm` is used for install libraries.
@@ -69,7 +51,7 @@ or
 $ npm install -D MODULE_NAME
 ```
 
-## Objectives of each part
+## What you need to do
 
 See each comment of PR and Finish all parts. (Please read `To achieve this process` in PR to understand what you need to do.)
 
@@ -79,6 +61,11 @@ See each comment of PR and Finish all parts. (Please read `To achieve this proce
 - [Part4: Create a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/10)
 - [Part5: Update a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/11)
 - [Part6: Delete a todo.](https://github.com/duyoji/creating_api_with_express_and_postgresql/pull/12)
+
+
+To understand what you need to do in each part, I recommend that you don't copy and paste into your code.
+But, you are allowed to refer to differences of code to finish each part.
+
 
 ## Recourses
 
