@@ -16,8 +16,6 @@ module.exports = {
       return {
         title: "title" + item,
         body: "body" + item,
-        createdAt: new Date(),
-        updatedAt: new Date()
       };
     });
     return queryInterface.bulkInsert("Todos", todos, {});
