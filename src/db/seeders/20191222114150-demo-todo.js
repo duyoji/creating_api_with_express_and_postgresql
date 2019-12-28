@@ -15,7 +15,7 @@ module.exports = {
     const todos = [1, 2, 3, 4, 5].map(item => {
       return {
         title: "title" + item,
-        body: "body" + item,
+        body: "body" + item
       };
     });
     return queryInterface.bulkInsert("Todos", todos, {});
