@@ -1,16 +1,16 @@
 
 const todosController = {
     getTodos(req, res) {
-        res.statuscode(200).json({message: 'getTodos'});
+        res.status(200).json({message: 'getTodos'});
     },
     postTodo(req, res) {
-        res.statuscode(200).json({message: 'postTodo'});
+        res.status(200).json({message: 'postTodo'});
     },
     putTodo(req, res) {
-        res.statuscode(200).json({message: 'putTodo', id: req.params.id});
+        res.status(200).json({message: 'putTodo', id: req.params.id});
     },
     deleteTodo(req, res) {
-        res.statuscode(200).json({message: 'deleteTodo', id: req.params.id});
+        res.status(200).json({message: 'deleteTodo', id: req.params.id});
     }
 };
 
