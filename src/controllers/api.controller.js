@@ -1,5 +1,3 @@
-// strictモードを指定https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Strict_mode
-'use strict'
 
 const todosController = {
     getTodos(req, res) {
