@@ -1,3 +1,4 @@
+'use strict';
 
 const todosController = {
     getTodos(req, res) {
