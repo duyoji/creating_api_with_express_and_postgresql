@@ -5,10 +5,10 @@ const todosController = {
     getTodos(req, res) {
         res.statuscode(200).json({message: 'getTodos'});
     },
-    postTodos(req, res) {
+    postTodo(req, res) {
         res.statuscode(200).json({message: 'postTodo'});
     },
-    putTodos(req, res) {
+    putTodo(req, res) {
         res.statuscode(200).json({message: 'putTodo', id: req.params.id});
     },
     deleteTodo(req, res) {
