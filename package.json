@@ -12,10 +12,26 @@
   },
   "devDependencies": {
     "chalk": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "mocha": "^6.2.2",
     "morgan": "^1.9.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "power-assert": "^1.6.1",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2"
   },
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "test": "mocha"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
