@@ -9,4 +9,4 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/todos', router);
 
-module.exports = app
+module.exports = app;
