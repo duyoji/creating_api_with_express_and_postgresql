@@ -5,8 +5,8 @@ const app = express();
 
 app.use(logger());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/todos', router);
 
-module.exports = app;
+module.exports = app
