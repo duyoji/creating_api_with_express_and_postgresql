@@ -3,7 +3,7 @@ const router = require('./routes/api.router');
 const logger = require('morgan');
 const app = express();
 
-//CORSの許可
+//CORSを許可
 const middlewareForAllowOrigin = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
