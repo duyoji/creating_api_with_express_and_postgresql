@@ -18,8 +18,7 @@ describe('test GET /api/todos', () => {
       assert.strictEqual(typeof todo.id, 'number');
       assert.strictEqual(typeof todo.title, 'string');
       assert.strictEqual(typeof todo.body, 'string');
-      //Mysqlにbooleanという型はない。0と1で表現されている。https://qiita.com/ritukiii/items/3a3667391d4d65678d82
-      assert.strictEqual(typeof todo.completed, 'number');
+      assert.strictEqual(typeof todo.completed, 'boolean');
     });
   });
 });

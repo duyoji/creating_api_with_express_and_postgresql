@@ -6,7 +6,6 @@ const todosController = {
     try {
       const todos = await db.Todo.findAll({
         order: [['id', 'ASC']], //idを昇順でデータを取得する
-        raw: true, //生のデータを取得
       });
       res.status(200).json(todos);
     } catch (error) {
