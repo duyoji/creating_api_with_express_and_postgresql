@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "mocha",
+    "test": "NODE_ENV=test mocha",
     "precommit": "lint-staged"
   },
   "lint-staged": {
