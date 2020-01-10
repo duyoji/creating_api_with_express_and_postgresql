@@ -16,8 +16,11 @@ const todosController = {
     let transaction;
     try {
       transaction = await db.sequelize.transaction();
-      const { title, body } = req.body;
-      const todo = await db.Todo.create({ title, body }, { transaction });
+      const { title, body, completed = false } = req.body;
+      const todo = await db.Todo.create(
+        { title, body, completed },
+        { transaction }
+      );
       await transaction.commit();
       res.status(200).json(todo);
     } catch (error) {

@@ -14,6 +14,7 @@ describe('test GET /api/todos', () => {
       const promise = Todo.create(insertTodo);
       promises.push(promise);
     }
+    //https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
     await Promise.all(promises);
   });
   after(async () => {
