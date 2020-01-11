@@ -13,7 +13,7 @@ describe('test POST /api/todos', () => {
     return response.body;
   };
 
-  //全てのテスト終了後、作成したデータを削除してDBとの通信を終了する
+  //全てのテスト終了後、作成したデータを削除する
   after(async () => {
     await sequelize.truncate();
   });
