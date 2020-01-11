@@ -16,7 +16,6 @@ describe('test POST /api/todos', () => {
   //全てのテスト終了後、作成したデータを削除してDBとの通信を終了する
   after(async () => {
     await sequelize.truncate();
-    await sequelize.close();
   });
 
   it('正常系のテスト', async () => {
@@ -66,7 +65,10 @@ describe('test POST /api/todos', () => {
         statusCode: 400,
       })
       .send(postData);
-    console.log(response.body);
+    assert.strictEqual(
+      response.body.message,
+      "Field 'title' doesn't have a default value"
+    );
   });
 
   it('bodyを送らなかったらエラーとなる', async () => {
@@ -80,6 +82,9 @@ describe('test POST /api/todos', () => {
         statusCode: 400,
       })
       .send(postData);
-    console.log(response.body);
+    assert.strictEqual(
+      response.body.message,
+      "Field 'body' doesn't have a default value"
+    );
   });
 });

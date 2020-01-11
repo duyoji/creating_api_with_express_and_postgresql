@@ -19,7 +19,6 @@ describe('test GET /api/todos', () => {
   });
   after(async () => {
     await sequelize.truncate();
-    await sequelize.close();
   });
 
   it('レスポンスのテスト', async () => {
