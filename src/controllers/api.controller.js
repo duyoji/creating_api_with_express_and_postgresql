@@ -12,8 +12,21 @@ const todosController = {
       res.status(400).json({ message: error.message });
     }
   },
-  postTodo(req, res) {
-    res.status(200).json({ message: 'postTodo' });
+  async postTodo(req, res) {
+    let transaction;
+    try {
+      transaction = await db.sequelize.transaction();
+      const { title, body, completed = false } = req.body;
+      const todo = await db.Todo.create(
+        { title, body, completed },
+        { transaction }
+      );
+      await transaction.commit();
+      res.status(200).json(todo);
+    } catch (error) {
+      await transaction.rollback();
+      res.status(400).json({ message: error.message });
+    }
   },
   putTodo(req, res) {
     res.status(200).json({ message: 'putTodo', id: req.params.id });
@@ -22,5 +35,4 @@ const todosController = {
     res.status(200).json({ message: 'deleteTodo', id: req.params.id });
   },
 };
-
 module.exports = todosController;
