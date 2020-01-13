@@ -28,8 +28,37 @@ const todosController = {
       res.status(400).json({ message: error.message });
     }
   },
-  putTodo(req, res) {
-    res.status(200).json({ message: 'putTodo', id: req.params.id });
+  async putTodo(req, res) {
+    let transaction;
+    try {
+      const { title, body, completed } = await req.body;
+      const { id } = req.params;
+      const parsedId = parseInt(id, 10);
+
+      transaction = await db.sequelize.transaction();
+
+      //findByPk()→https://sequelize.org/master/manual/models-usage.html#-code-find--code----search-for-one-specific-element-in-the-database
+      const targetTodo = await db.Todo.findByPk(parsedId, { transaction });
+      if (!targetTodo) {
+        const error = new Error('存在しないIDです');
+        error.status = 404;
+        throw error;
+      }
+
+      const updatedTodo = await targetTodo.update(
+        {
+          title,
+          body,
+          completed,
+        },
+        { transaction }
+      );
+      await transaction.commit();
+      res.status(200).json({ updatedTodo });
+    } catch (error) {
+      await transaction.rollback();
+      res.status(error.status || 400).json({ message: error.message });
+    }
   },
   deleteTodo(req, res) {
     res.status(200).json({ message: 'deleteTodo', id: req.params.id });
