@@ -47,7 +47,6 @@ const todosController = {
 
       const updatedTodo = await targetTodo.update(
         {
-          id: parsedId,
           title,
           body,
           completed,
