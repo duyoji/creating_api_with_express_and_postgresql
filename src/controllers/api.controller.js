@@ -35,11 +35,6 @@ const todosController = {
       const { id } = req.params;
       const parsedId = parseInt(id, 10);
 
-      if (parsedId < 1 || isNaN(parsedId)) {
-        const error = new Error('IDは必須です(1以上の数値)');
-        throw error;
-      }
-
       transaction = await db.sequelize.transaction();
 
       //https://sequelize.org/master/manual/models-usage.html#-code-find--code----search-for-one-specific-element-in-the-database
@@ -62,10 +57,8 @@ const todosController = {
       await transaction.commit();
       res.status(200).json({ updatedTodo });
     } catch (error) {
-      res.status(error.status || 400).json({ message: error.message });
-      //line38~41で投げられたエラーを返せるようにrollbackは最後に行うように修正。
-      //上記のエラーはtransaction経由で投げられていないため。
       await transaction.rollback();
+      res.status(error.status || 400).json({ message: error.message });
     }
   },
   deleteTodo(req, res) {
