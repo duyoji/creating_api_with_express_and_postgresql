@@ -37,7 +37,7 @@ const todosController = {
 
       transaction = await db.sequelize.transaction();
 
-      //https://sequelize.org/master/manual/models-usage.html#-code-find--code----search-for-one-specific-element-in-the-database
+      //findByPk()→https://sequelize.org/master/manual/models-usage.html#-code-find--code----search-for-one-specific-element-in-the-database
       const targetTodo = await db.Todo.findByPk(parsedId, { transaction });
       if (!targetTodo) {
         const error = new Error('存在しないIDです');
