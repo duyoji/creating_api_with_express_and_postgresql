@@ -3,6 +3,7 @@ const assert = require('power-assert');
 const { Todo, sequelize } = require('../../../../src/db/models');
 
 describe('test GET /api/todos', () => {
+  //テストが実行される前に、テスト用のデータ5件を作成する
   before(async () => {
     const promises = [];
     for (let i = 0; i < 5; i++) {
@@ -15,8 +16,10 @@ describe('test GET /api/todos', () => {
       promises.push(promise);
     }
     //https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+    //Promise.allで配列に入った各Promiseオブジェクトをresolveする。
     await Promise.all(promises);
   });
+  //全てのテスト終了後、作成したデータを削除する
   after(async () => {
     await sequelize.truncate();
   });
