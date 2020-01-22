@@ -13,7 +13,7 @@ describe('test PUT /api/todos', () => {
     return response.body;
   };
 
-  //テスト用のデータ5件を作成
+  //テストが実行される前に、テスト用のデータ5件を作成する
   before(async () => {
     const promises = [];
     for (let i = 0; i < 5; i++) {
@@ -25,6 +25,7 @@ describe('test PUT /api/todos', () => {
       const promise = Todo.create(insertTodo);
       promises.push(promise);
     }
+    //Promise.allで配列に入った各Promiseオブジェクトをresolveする。
     await Promise.all(promises);
   });
   //全てのテスト終了後、作成したデータを削除する

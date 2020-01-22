@@ -60,8 +60,27 @@ const todosController = {
       res.status(error.status || 400).json({ message: error.message });
     }
   },
-  deleteTodo(req, res) {
-    res.status(200).json({ message: 'deleteTodo', id: req.params.id });
+  async deleteTodo(req, res) {
+    let transaction;
+    try {
+      const { id } = req.params;
+      const parsedId = parseInt(id, 10);
+
+      transaction = await db.sequelize.transaction();
+      const targetTodo = await db.Todo.findByPk(parsedId, { transaction });
+      if (!targetTodo) {
+        const error = new Error('存在しないIDです');
+        error.status = 404;
+        throw error;
+      }
+
+      const deletedTodo = await targetTodo.destroy({ transaction });
+      await transaction.commit();
+      res.status(200).json(deletedTodo);
+    } catch (error) {
+      await transaction.rollback();
+      res.status(error.status || 400).json({ message: error.message });
+    }
   },
 };
 module.exports = todosController;
